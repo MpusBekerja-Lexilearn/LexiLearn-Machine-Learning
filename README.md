@@ -38,6 +38,14 @@ tensorflow==2.13.0
 tensorflow-datasets==4.9.2
 ```
 
+To set up the environment, install these dependencies using pip:
+
+```
+pip install -r requirements.txt
+```
+
+Ensure you are using Python 3.9 or later.
+
 ## Scripts
 This section contains Python scripts for different tasks in the machine learning pipeline.
 
