@@ -68,3 +68,5 @@ test_labels = tf.keras.utils.to_categorical(test_labels - 1, num_classes)
 np.savez(os.path.join(processed_data_dir, 'emnist_preprocessed.npz'),
          train_images=train_images, train_labels=train_labels,
          test_images=test_images, test_labels=test_labels)
+
+print("Data preprocessing complete and saved.")
