@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Letter Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Upload an Image to Predict the Letter</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <label for="model_type">Select Model:</label>
+        <select name="model_type" id="model_type">
+            <option value="AZ">AZ Handwritten</option>
+            <option value="EMNIST">EMNIST Letters</option>
+        </select>
+        <br><br>
+        <input type="file" name="file" id="file">
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
+    <br>
+    <div id="prediction-result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#upload-form').on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    url: '/predict',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        if(response.predicted_label) {
+                            $('#prediction-result').html('<h2>Predicted Letter: ' + response.predicted_label + '</h2>');
+                        } else if (response.error) {
+                            $('#prediction-result').html('<h2>' + response.error + '</h2>');
+                        }
+                    },
+                    error: function() {
+                        $('#prediction-result').html('<h2>An error occurred while predicting the letter.</h2>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
