@@ -74,7 +74,10 @@ This section contains Python scripts for different tasks in the machine learning
 This folder contains trained machine learning models.
 ### EMNIST Letters
 - `emnist_letters_model.h5`: Trained TensorFlow/Keras model for handwritten text recognition using the EMNIST letters dataset.
-- 
+- `converted_model.tflite`: TensorFlow Lite model converted from the original TensorFlow/Keras model.
+- `tfjs_models/`: Folder containing TensorFlow.js models for EMNIST letters dataset.
+- `model.json`: TensorFlow.js model JSON file.
+- `group1-shard1of1.bin`: TensorFlow.js model binary weights file.
 
 ### AZ Handwritten
 - `az_handwritten_model.h5`: Trained TensorFlow/Keras model for AZ Handwritten dataset.
@@ -86,10 +89,9 @@ This folder contains trained machine learning models.
 ## Processed Data
 This directory contains preprocessed data used for training and evaluation.
 - `emnist_preprocessed.npz`: Preprocessed data for training and testing machine learning models, including images and labels.
-
-## Converted Models
-This directory stores models converted to TensorFlow Lite format for deployment on mobile devices.
-- `converted_model.tflite`: TensorFlow Lite model converted from the original TensorFlow/Keras model.
+- `az_preprocessed.npz`: Preprocessed data for training and testing machine learning models on the AZ Handwritten dataset.
+- `az-processed/`: Directory for additional processed data related to the AZ Handwritten dataset.
+- `extracted-mnist/`: Directory for extracted MNIST data
 
 ## Model Evaluation
 ### EMNIST Letters
